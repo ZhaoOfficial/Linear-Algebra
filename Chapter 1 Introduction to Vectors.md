@@ -23,25 +23,29 @@ A unit vector $\vec{u}$ is a vector whose length equals one. Then $\vec{u} \cdot
 
 ### The Angle Between Two Vectors
 
-\1. The dot product v • w multiplies each component Vi by wi and adds all viwi. 
+1. The dot product $\vec{v} \cdot \vec{w}$ multiplies each component $v_i$ by $w_i$ and adds all $viwi$. 
+2. The length $\|\vec{v}\|$ is $\sqrt{\vec{v}\cdot\vec{v}}$. Then $\vec{u}=\vec{v}/\|\vec{v}\|$ is a unit vector: length 1.
+3. The dot product is $\vec{v} \cdot \vec{w} = 0$ when vectors $\vec{v}$ and $\vec{w}$ are perpendicular.
+4. The cosine of  the angle between any nonzero $\vec{v}$ and $\vec{w}$ never exceeds 1:
 
-\2. The length 11 v 11 is the square root of v · v. Then u = v / 11 v 11 is a unit vector : length 1.
+Cosine of the angle: $\cos\theta=\frac{\vec{v}\cdot\vec{u}}{\|\vec{v}\|\|\vec{u}\|}$
 
-\3. The dot product is v · w = 0 when vectors v and w are perpendicular.
+Schwarz inequality: $|\vec{v}\cdot\vec{u}|\le\|\vec{v}\|\|\vec{u}\|$ 
 
-\4. The cosine of 0 ( the angle between any nonzero v and w) never exceeds I:
+## 1.3 Matrices
 
-Cosine cosB = llvll V • ll W 
+### Linear Equations
 
-wll Schwarz inequality 
+### The Inverse Matrix
 
+### Cyclic Differences
 
+### Independence and Dependence
 
-
-
-
-
-
+1. Matrix times vector: $A\vec{x}=$ combination of the columns of $A$.
+2. The solution to $A\vec{x} = \vec{b}$ is $\vec{x} = A^{-1}\vec{b}$, when $A$ is an invertible matrix.
+3. The cyclic matrix $C$ has no inverse. Its three columns lie in the same plane. Those dependent columns add to the zero vector. $C\vec{x} = \vec{0}$ has many solutions.
+4. This section is looking ahead to key ideas, not fully explained yet~~~.
 
 
 
