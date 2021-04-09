@@ -51,7 +51,7 @@ $$
 
 ### 增广矩阵和基本行操作 Augmented Matrices and Elementary Row Operations
 
- abbreviate the linear system we get augmented matrix
+augmented matrix: abbreviation of the linear system
 
 $$
 \begin{bmatrix}
@@ -106,13 +106,137 @@ $$
 
 ### 高斯消元法步骤 Elimination Methods
 
+> Step 1. Locate the leftmost *column* that does not consist entirely of 0.
+> $$
+> \begin{bmatrix}
+> 0&0&−2&0&7&12\\
+> 2&4&−10&6&12&28\\
+> 2&4&−5&6&−5&−1
+> \end{bmatrix}
+> $$
+> Step 2. Interchange the top row with another row, if necessary, to bring a nonzero entry to the top of the column found in Step 1.
+> $$
+> \begin{bmatrix}
+> 2&4&−10&6&12&28\\
+> 0&0&−2&0&7&12\\
+> 2&4&−5&6&−5&−1
+> \end{bmatrix}
+> $$
+> Step 3. If the entry that is now at the top of the column found in Step 1 is *a*, multiply the first row by *1/a* in order to introduce a leading 1.
+> $$
+> \begin{bmatrix}
+> 1&2&−5&3&6&14\\
+> 0&0&−2&0&7&12\\
+> 2&4&−5&6&−5&−1
+> \end{bmatrix}
+> $$
+> Step 4. Add suitable multiples of the top row to the rows below so that all entries below the leading 1 become 0.
+> $$
+> \begin{bmatrix}
+> 1&2&−5&3&6&14\\
+> 0&0&−2&0&7&12\\
+> 0&0&5&0&−17&−29
+> \end{bmatrix}
+> $$
+> Step 5. Again with Step 1 applied to the submatrix that remains. Continue in this way until the *entire* matrix is in row echelon form.
+> $$
+> \begin{bmatrix}
+> 1&2&-5&3&6&14\\
+> 0&0&1&0&-\frac{7}{2}&-6\\
+> 0&0&0&0&1&2
+> \end{bmatrix}
+> $$
+> Step 6. Beginning with the last nonzero row and working upward, add suitable multiples of each row to the rows above to introduce zeros above the leading 1’s.
+> $$
+> \begin{bmatrix}
+> 1&2&0&3&0&7\\
+> 0&0&1&0&0&1\\
+> 0&0&0&0&1&2
+> \end{bmatrix}
+> $$
+
+#### 解的情况
+
+1. 如果最后一行存在类似
+   $$
+   0x+0y+0z=c\qquad(c\ne0)
+   $$
+   则该方程组无解。
+
+2. 如果最后一行存在类似
+   $$
+   0x+0y+0z=0
+   $$
+   则该行可以忽略，对解没有影响。
+
+3. Variable correspond to the leading 1’s in the augmented matrix are the *leading variables*. The remaining variables are called *free variables*.
+
+   > So the solution can be expressed as:
+   > $$
+   > x_1=7-2x_2-3x_4\quad x_3=1\quad x_5=2
+   > $$
+
+4. 
+
+### 齐次线性方程组 Homogeneous Linear Systems
+
+$$
+a_{11}x_1 + a_{12}x_2 +\dots+ a_{1n}x_n = 0\\
+a_{21}x_1 + a_{22}x_2 +\dots+ a_{2n}x_n = 0\\
+\vdots\\
+a_{m1}x_1 + a_{m2}x_2 +\dots+ a_{mn}x_n = 0
+$$
+
+$x_1= 0, x_2 = 0,\dots,x_n = 0$ is always a solution, called 平凡解 *trivial solution*. If there are other solutions, they are called 非平凡解 *nontrivial solutions*.
+
+Now consider a general homogeneous linear system with *n* unknowns, and suppose that the reduced row echelon form of the augmented matrix has *r* nonzero rows.
+$$
+\begin{bmatrix}
+x_{k_1}&&&&+ \sum( ) & 0\\
+&x_{k_2}&&&+ \sum( ) & 0\\
+&&\ddots&&\vdots\\
+&&&x_{k_r}&+ \sum( ) & 0
+\end{bmatrix}
+$$
+
+### THEOREM 1.2.1 Free Variable Theorem for Homogeneous Systems
+
+If a homogeneous linear system has *n* unknowns, and if the reduced row echelon form of its augmented matrix has *r* nonzero rows, then the system has *n − r* free variables.
+
+### THEOREM 1.2.2
+
+A homogeneous linear system with *more* unknowns than equations has infinitely many solutions.
 
 
 
+ 3 facts about row echelon forms and reduced row echelon forms:
 
+1. Every matrix has a unique reduced row echelon form; that is, regardless of whether you use Gauss–Jordan elimination or some other sequence of elementary row operations, the same reduced row echelon form will result in the end.
+2. Row echelon forms are not unique; that is, different sequences of elementary row operations can result in different row echelon forms.
+3. Although row echelon forms are not unique, the reduced row echelon form and all row echelon forms of a matrix *A* have the same number of zero rows, and the leading 1’s always occur in the same positions. Those are called the pivot positions of *A*. A column that contains a pivot position is called a pivot column of *A*.
 
+## 1.3 矩阵和矩阵操作 Matrices and Matrix Operations
 
+### Matrices
 
+Definition1: A matrix is a rectangular array of numbers. The numbers in the array are called the *entries* in the matrix.
 
+Size: number of rows and columns.
 
+A matrix with *n* rows and *n* columns is said to be a n阶方阵 square matrix of order n.
 
+A matrix with only one row is called a row vector and a matrix with only one column is called a column vector.
+
+### Matrix Operations
+
+*Equal*: $a_{ij}=b_{ij}$
+
+*Addition and Subtraction*: $(a+b)_{ij}=a_{ij}+b_{ij}$
+
+*Scalar product*: $c(a_{ij})=ca_{ij}$
+
+*Matrix product*: $c_{ij}=\sum_{k}a_{ik}b_{kj}$
+
+*Partition*: divide into submatrices and/or vectors
+
+### Matrix Multiplication by Columns and by Rows
