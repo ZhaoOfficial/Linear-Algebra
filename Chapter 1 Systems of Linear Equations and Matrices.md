@@ -353,7 +353,7 @@ $$
 #### 消去律的失效 Failure of the Cancellation Law
 
 $$
-AB=AC=\nRightarrow B=C
+AB=AC\nRightarrow B=C
 $$
 
 #### 非0因数的乘积为0 A Zero Product with Nonzero Factors
@@ -468,7 +468,7 @@ $$
 p_1(A)p_2(A)=p_2(A)p_1(A)
 $$
 
-### Properties of theTranspose
+### Properties of the Transpose
 
 $$
 \begin{align*}
@@ -535,48 +535,9 @@ If the elementary matrix $E$ results from performing a certain row operation on 
 
 Every elementary matrix is invertible, and the inverse is also an elementary matrix.
 
-### THEOREM 1.5.3 **Equivalent Statements**
+### THEOREM 1.5.3
 
-If $A$ is an $n \times n$ matrix, then the following statements are equivalent.
-
-1. $A$ is invertible.
-2. $A\mathbf x = \mathbf0$ has only the trivial solution.
-3. The reduced row echelon form of $A$ is $I_n$.
-4. $A$ is expressible as a product of elementary matrices.
-
-#### proof:
-
-#### (1)=>(2)
-
-$$
-(A^{-1})A\mathbf x=(A^{-1})\mathbf 0\Rightarrow I\mathbf x=\mathbf x=\mathbf 0
-$$
-
-#### (2)=>(3)
-
-The row reduced echelon form of the correspoding augmented matrix will be
-$$
-\begin{bmatrix}
-x_{1}&&&& 0\\
-&x_{2}&&& 0\\
-&&\ddots&\\
-&&&x_{n}  & 0
-\end{bmatrix}
-$$
-which can be reduced to $I_n$
-
-#### (3)=>(4)
-
-When reducing, there are a sequence of elementary matrces correspoding to the row operations, so we left multiply them in order and thus we can obtain
-$$
-E_k\dots E_2E_1A=I_n\Rightarrow A=E_1^{-1}E_2^{-1}\dots E_k^{-1}I_n
-$$
-
-#### (4)=>(1)
-
-$$
-A^{-1}=E_k\dots E_2E_1I_n
-$$
+[Equivalent Statements](Equivalent Statements.md#Equivalent Statements)
 
 ### A Method for Inverting Matrices
 
@@ -590,6 +551,183 @@ E_k\dots E_2E_1[A\ |\ I]=A^{-1}[A\ |\ I]=[I\ |\ A^{-1}]
 $$
 
 ## 1.6 More on Linear Systems and Invertible Matrices
+
+### THEOREM 1.6.1
+
+A system of linear equations has zero, one, or infinitely many solutions.
+
+#### proof:
+
+0 or 1 solution is obvious. And if $A\mathbf x=\mathbf b$ has more than 1 solution, then let $\mathbf x_1, \mathbf x_2$ be the distinct solution. $\mathbf x_0=\mathbf x_1-\mathbf x_2\ne\mathbf 0$, so
+$$
+A\mathbf x_0=A(\mathbf x_1-\mathbf x_2)=A\mathbf x_1-A\mathbf x_2=\mathbf b-\mathbf b=\mathbf 0
+$$
+let $k$ be any scalar:
+$$
+A(\mathbf x_1+k\mathbf x_0)=A\mathbf x_1+A(k\mathbf x_0)=\mathbf b+k\mathbf 0=\mathbf b
+$$
+So there are infinite solutions.
+
+### THEOREM 1.6.2
+
+If $A$ is an invertible $n \times n$ matrix, then for each $n \times 1$ matrix $\mathbf b$, the system of equations $A\mathbf x=\mathbf b$ has exactly one solution, namely, $\mathbf x=A^{-1}\mathbf b$.
+
+#### proof:
+
+`easy`
+
+### THEOREM 1.6.3
+
+Let $A$ be a square matrix.
+
+(a) If $B$ is a square matrix satisfying $BA = I$, then $B= A^{−1}$. 
+
+(b) If $B$ is a square matrix satisfying $AB = I$, then $B= A^{−1}$.
+
+#### proof:
+
+(a) Let $\mathbf x_0$ be the solution to $A\mathbf x=\mathbf 0$, then $\mathbf x_0=I\mathbf x_0=BA\mathbf x_0=B\mathbf 0=\mathbf 0$ is the only solution. Then $A$ is invertible.
+
+(b) By definition [Inverse of a Matrix](#Inverse of a Matrix). Then $B= A^{−1}$.
+
+### THEOREM 1.6.5
+
+Let $A$ and $B$ be square matrices of the same size. If $AB$ is invertible, then $A$ and $B$ must also be invertible.
+
+#### proof:
+
+Let $\mathbf x_0$ be the solution of $B\mathbf x=\mathbf 0$, then
+$$
+AB\mathbf x_0=A\mathbf 0=\mathbf 0
+$$
+Since $AB$ is invertible, then $\mathbf x_0=\mathbf 0$, so $B$ is invertible, then
+$$
+A=(AB)B^{-1}
+$$
+is the product of invertible matrices, also invertible.
+
+## 1.7 对角，三角和对称矩阵 Diagonal,Triangular, and Symmetric Matrices
+
+### Diagonal Matrices
+
+A square matrix in which all the entries *off the main diagonal* are zero is called a *diagonal matrix*.
+$$
+D=\begin{bmatrix}
+d_1&0&\cdots&0\\
+0&d_2&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&d_n
+\end{bmatrix}\\
+\exist d_i\ne0
+$$
+A diagonal matrix is invertible if and only if all of its diagonal entries are nonzero
+$$
+D^{-1}=\begin{bmatrix}
+1/d_1&0&\cdots&0\\
+0&1/d_2&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&1/d_n
+\end{bmatrix}\\
+$$
+Powers of diagonal matrices
+$$
+D^k=\begin{bmatrix}
+d_1^k&0&\cdots&0\\
+0&d_2^k&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&d_n^k
+\end{bmatrix}\\
+$$
+
+### Triangular Matrices
+
+A *square* matrix in which all the entries *above* the main diagonal are zero is called *lower triangular*, and a square matrix in which all the entries *below* the main diagonal are zero is called *upper triangular*. A matrix that is either upper triangular or lower triangular is called *triangular*.
+$$
+L=\begin{bmatrix}
+a_{11}&a_{12}&\cdots&a_{1n}\\
+0&a_{22}&\cdots&a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&a_{nn}
+\end{bmatrix}\quad 
+U=\begin{bmatrix}
+a_{11}&0&\cdots&0\\
+a_{21}&a_{22}&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{n1}&a_{n2}&\cdots&a_{nn}
+\end{bmatrix}\
+$$
+
+### THEOREM 1.7.1
+
+(a) The transpose of a lower triangular matrix is upper triangular, and the transpose of an upper triangular matrix is lower triangular.
+
+(b) The product of lower triangular matrices is lower triangular, and the product of upper triangular matrices is upper triangular.
+
+(c) A triangular matrix is invertible if and only if its diagonal entries are all nonzero.
+
+(d) The inverse of an invertible lower triangular matrix is lower triangular, and the inverse of an invertible upper triangular matrix is upper triangular
+
+#### proof:
+
+(a) `easy`
+
+(b) Let $A$ and $B$ be the lower triangular matrices, then $a_{ij},b_{ij}=0$ for $i<j$
+$$
+c_{ij}=\sum_{k=1}^{n}a_{ik}b_{kj}=\sum_{k=1}^{i}a_{ik}b_{kj}
+$$
+So if $i<j$, then $k\le i<j$, then $b_{kj}=0$, then $c_{kj}=0$.
+
+(c) (d) to be down later.
+
+### Symmetric Matrices
+
+A square matrix $A$ is said to be *symmetric* if $A=A^T$ .
+
+### THEOREM 1.7.2
+
+If $A$ and $B$ are symmetric matrices with the same size, and if $k\in\mathbb C$, then:
+
+(a) $A^T$ is symmetric.
+
+(b) $A + B$ and $A − B$ are symmetric.
+
+(c) $kA$ is symmetric.
+
+`easy to proof`.
+
+### THEOREM 1.7.3
+
+The product of two symmetric matrices is symmetric if and only if the matrices commute.
+$$
+(AB)^T=B^TA^T=BA=AB
+$$
+
+### THEOREM 1.7.4
+
+If $A$ is an *invertible symmetric* matrix, then $A^{-1}$ is symmetric.
+$$
+I=(AA^{-1})^{T}=(A^{-1})^{T}A^{T}=(A^{-1})^{T}A\\
+\Longrightarrow (A^{-1})^{T}=A^{-1}
+$$
+
+### Production of $AA^T$ and $A^TA$
+
+$A$ can be any matrix.
+$$
+(AA^T)^T=(A^T)^TA^T=AA^T\\
+(A^TA)^T=A^T(A^T)^T=A^TA
+$$
+So production of $AA^T$ and $A^TA$ are *sysmetric*.
+
+### THEOREM 1.7.5
+
+If $A$ is an invertible matrix, then $AA^T$ and $A^TA$ are also invertible.
+
+#### proof:
+
+Since $A$ is invertible, so is $A^{T}$. Then the production are invertible.
+
+## 1.8 矩阵变换 Matrix Transformations
 
 
 
