@@ -729,11 +729,51 @@ Since $A$ is invertible, so is $A^{T}$. Then the production are invertible.
 
 ## 1.8 矩阵变换 Matrix Transformations
 
+Define $\mathbb R^n$ be the $n$ 维空间 $n$ dimension space.
 
+Define 标准基 *standard basis vector*:
+$$
+\mathbf e_1=\begin{bmatrix}1\\0\\\vdots\\0\end{bmatrix}
+\mathbf e_2=\begin{bmatrix}0\\1\\\vdots\\0\end{bmatrix}
+\cdots
+\mathbf e_n=\begin{bmatrix}0\\0\\\vdots\\1\end{bmatrix}
+$$
+Then $\forall \mathbf x\in\mathbb R^n$ can be expressed as 
+$$
+\mathbf x=x_1\mathbf e_1+\cdots+x_n\mathbf e_n
+$$
 
+### 函数和变换 Functions and Transformations
 
+*function* is a rule that associates with each element of a set $A$ one and only one element in a set $B$. If $f$ associates the element $b$ with the element $a$, then we write
+$$
+b=f(a)
+$$
+$b$ is the 像*image* of $a$ under $f$. 
 
+$A$ is 定义域 *domain*, $B$ is 上域 *codomain*, $\{b|b=f(a)\}$ is 值域 *range* which is a subset of $B$.
 
+If $f$ is a function with domain $R^n$ and codomain $R^m$, then we say that $f$ is a *transformation* from $R^n$ to $R^m$ or that $f$ *maps* from $R^n$ to $R^m$, which we denote
+$$
+f: R^n\to R^m
+$$
+In the special case where $m=n$, a transformation is sometimes called an *operator* on $R^n$.
 
+Usually we use $T$ to denote the transform.
 
+*Matrix multipltication is a kind of transform, we call it matrix transform.*
 
+### THEOREM 1.8.1
+
+For every matrix $A$ the matrix transformation $T_A: R^n\to R^m$ has the following properties for all vectors $\mathbf u$ and $\mathbf v$ and for every scalar $k$ : 
+
+(a) $T_A(\mathbf 0)=\mathbf 0$ 
+
+(b) $T_A(k\mathbf u)=kT_A(\mathbf u)$[Homogeneity property]
+
+(c) $T_A(\mathbf u\pm\mathbf v)=T_A(\mathbf u)\pm T_A(\mathbf v)$[Additivity property]
+
+Then it make sence that 
+$$
+T_A(\sum_{i=1}^{r}k_i\mathbf u_i)=\sum_{i=1}^{r}k_iT_A(\mathbf u)
+$$
