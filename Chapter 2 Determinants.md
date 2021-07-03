@@ -113,32 +113,167 @@ If A is a square matrix with two proportional rows or two proportional columns, 
 
 ## 2.3 行列式性质；克莱姆法则 Properties of Determinants; Cramer's Rule
 
-1. $$
-   \det(kA)=k^n\det(A)
-   $$
+### Basic Properties of Determinants
 
-2. $$
-   \det(A+B)\ne\det(A)+\det(B)
-   $$
+$$
+\det(kA)=k^n\det(A)
+$$
 
-   Let $A$, $B$, and $C$ be $n\times n$ matrices that differ only in a single row, say the $r^{th}$, and assume that the $r^{th}$ row of $C$ can be obtained by adding corresponding
-   entries in the $r^{th}$ rows of $A$ and $B$. Then $\det(C) = \det(A) + \det(B)$. The same result holds for columns.
+#### Proof
 
-3. $$
+$$
+\det(kA)=\sum_{i=1}^nka_{i1}C_{i1}=\cdots=k^n\det(A)
+$$
+
+$$
+\det(A+B)\ne\det(A)+\det(B)
+$$
+
+Let $A$, $B$, and $C$ be $n\times n$ matrices that differ only in a single row, say the $r^{th}$, and assume that the $r^{th}$ row of $C$ can be obtained by adding corresponding entries in the $r^{th}$ rows of $A$ and $B$. Then $\det(C) = \det(A) + \det(B)$. The same result holds for columns.
+
+#### Proof
+
+$$
+\begin{align*}
+\det(C)&=\sum_{i=1}^nc_{i1}C_{i1}\sum_{i=1}^nc_{i1}C_{i1}\\
+&=\sum_{i=1}^na_{i1}C_{i1}+\sum_{i=1}^nb_{i1}C_{i1}\\
+&=\det(A)+\det(B)
+\end{align*}
+$$
+
+$$
    \det(AB)=\det(A)\det(B)
-   $$
+$$
 
-   
+### LEMMA 2.3.2
 
+If $B$ is an $n \times n$ matrix and $E$ is an $n \times n$ elementary matrix, then $\det(EB) = \det(E)\det(B)$.
 
+#### Proof:
 
+If $E$ results from multiplying a row of $I_n$ by $k$, then $EB$ results from $B$ by multiplying the corresponding row by $k$, then $\det(EB) = \det(E)\det(B)$.
 
+Other cases are similar.
 
+Then $\det(E_1E_2\dots E_rB) = \det(E_1)\det(E_2)\dots\det(E_r)\det(B)$
 
+### THEOREM 2.3.3
 
+A square matrix $A$ is invertible if and only if $\det(A) = 0$.
 
+#### Proof
 
+$A$ can be reduced to row reduction echelon form $R$:
+$$
+R=E_1E_2\dots E_rA
+$$
+Then
+$$
+\det(R)=\det(E_1)\det(E_2)\dots\det(E_r)\det(A)
+$$
+Then $\det(R)=\det(A)=0$ only when $A$ is invertible.
 
+### THEOREM 2.3.4
 
+If $A$ and $B$ are square matrices of the same size, then $\det(AB) = \det(A) \det(B)$.
 
+#### Proof
+
+If $A$ or $B$ is invertible, then $AB$ is invertible. Then $\det(AB) = \det(A) \det(B)=0$.
+
+Otherwise, $A$ can be represents as a multiplication of elementary matrices, then $\det(AB) = \det(A) \det(B)$.
+
+### THEOREM 2.3.5
+
+If $A$ is invertible, then $\det(A^{-1}) = \frac{1}{\det(A)}$
+
+#### Proof
+
+$$
+\det(A^{-1})\det(A)=\det(A^{-1}A)=\det(I)=1
+$$
+
+### Adjoint of a Matrix
+
+If $A$ is any $n \times n$ matrix and $C_{ij}$ is the cofactor of $a_{ij}$ , then the matrix
+
+$$
+\begin{bmatrix}
+C_{11}&C_{21}&\cdots&C_{n1}\\
+C_{12}&C_{22}&\cdots&C_{n2}\\
+\vdots&\vdots&&\vdots\\
+C_{1n}&C_{2n}&\cdots&C_{nn}
+\end{bmatrix}
+$$
+is called the adjoint of $A$ and is denoted by $\text{adj}(A)$.
+
+### THEOREM 2.3.6
+
+If $A$ is an invertible matrix, then $A^{-1}=\frac{1}{\det(A)}\text{adj}(A)$
+
+#### Proof
+
+$$
+\begin{align*}
+A\ \text{adj}(A)_{(ij)}&=\sum_{k=1}^{n}A_{(ik)}\text{adj}(A)_{(kj)}\\
+&=\sum_{k=1}^{n}A_{(ik)}C_{(jk)}\\
+&=\begin{cases}
+\det(A)&i=j\\
+0&i\ne j
+\end{cases}\\
+\end{align*}\\
+A\ \text{adj}(A)=\det(A)I
+$$
+
+---
+
+Consider a matrix $B$ that replace the $j^{th}$ row to the $i^{th}$ row in $A$. Then 
+$$
+\begin{align*}
+\sum_{k=1}^{n}A_{(ik)}C_{(jk)}&=\sum_{k=1}^{n}A_{(jk)}C_{(jk)}=\det(B)=0
+\end{align*}\\
+$$
+
+---
+
+Easy to get $\det(\text{adj}(A))=[\det(A)]^{n-1}$.
+
+### THEOREM 2.3.7 Cramer's Rule
+
+If $A\mathbf x =\mathbf b$ is a system of $n$ linear equations in $n$ unknowns such that $\det(A) = 0$, then the system has a unique solution. This solution is
+$$
+x_j=\frac{\det(A_j)}{\det(A)}
+$$
+where $A_j$ is the matrix obtained by replacing the entries in the $j^{th}$ column of $A$ by the
+entries in the vector $\mathbf b$.
+
+#### Proof
+
+$$
+\begin{align*}
+\mathbf x&=A^{-1}\mathbf b\\
+&=\frac{1}{\det(A)}\text{adj}(A)\mathbf b\\
+&=\frac{1}{\det(A)}
+\begin{bmatrix}
+C_{11}&C_{21}&\cdots&C_{n1}\\
+C_{12}&C_{22}&\cdots&C_{n2}\\
+\vdots&\vdots&&\vdots\\
+C_{1n}&C_{2n}&\cdots&C_{nn}
+\end{bmatrix}
+\begin{bmatrix}
+b_1\\
+b_2\\
+\vdots\\
+b_n
+\end{bmatrix}\\
+&=\frac{1}{\det(A)}
+\begin{bmatrix}
+b_1C_{11}+b_2C_{21}+\cdots+b_nC_{n1}\\
+b_1C_{12}+b_2C_{22}+\cdots+b_nC_{n2}\\
+\vdots\\
+b_1C_{1n}+b_2C_{2n}+\cdots+b_nC_{nn}
+\end{bmatrix}
+\end{align*}\\
+x_j=\frac{\sum_{i=1}^nb_{ij}C_{ij}}{\det(A)}=\frac{\det(A_j)}{\det(A)}
+$$
 
