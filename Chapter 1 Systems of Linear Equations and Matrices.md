@@ -392,7 +392,7 @@ $$
 
 If $R$ is the reduced row echelon form of an $n\times n$ matrix $A$, then either $R$ has a row of zeros or $R$ is the identity matrix $I_n$.
 
-#### proof:
+#### Proof
 
 If last row contains all 0s, then we done.
 
@@ -408,7 +408,7 @@ If $A$ is a *square matrix*, and if a matrix $B$ of the same size can be found s
 
 If $B$ and $C$ are both inverses of the matrix $A$, then $B = C$.
 
-#### proof:
+#### Proof
 
 $$
 B=BI=B(AC)=(BA)C=IC=C
@@ -423,7 +423,7 @@ $$
 (AB)^{-1}=B^{-1}A^{-1}
 $$
 
-#### proof:
+#### Proof
 
 $$
 (AB)(B^{-1}A^{-1})=ABB^{-1}A^{-1}=AIA^{-1}=I\\
@@ -486,7 +486,7 @@ $$
 (A^T)^{−1} = (A^{−1})^T
 $$
 
-#### proof:
+#### Proof
 
 $$
 (A^{T})^{-1}A^{T}=A^T(A^{T})^{-1}=I\\
@@ -556,7 +556,7 @@ $$
 
 A system of linear equations has zero, one, or infinitely many solutions.
 
-#### proof:
+#### Proof
 
 0 or 1 solution is obvious. And if $A\mathbf x=\mathbf b$ has more than 1 solution, then let $\mathbf x_1, \mathbf x_2$ be the distinct solution. $\mathbf x_0=\mathbf x_1-\mathbf x_2\ne\mathbf 0$, so
 $$
@@ -572,7 +572,7 @@ So there are infinite solutions.
 
 If $A$ is an invertible $n \times n$ matrix, then for each $n \times 1$ matrix $\mathbf b$, the system of equations $A\mathbf x=\mathbf b$ has exactly one solution, namely, $\mathbf x=A^{-1}\mathbf b$.
 
-#### proof:
+#### Proof
 
 `easy`
 
@@ -584,7 +584,7 @@ Let $A$ be a square matrix.
 
 (b) If $B$ is a square matrix satisfying $AB = I$, then $B= A^{−1}$.
 
-#### proof:
+#### Proof
 
 (a) Let $\mathbf x_0$ be the solution to $A\mathbf x=\mathbf 0$, then $\mathbf x_0=I\mathbf x_0=BA\mathbf x_0=B\mathbf 0=\mathbf 0$ is the only solution. Then $A$ is invertible.
 
@@ -594,7 +594,7 @@ Let $A$ be a square matrix.
 
 Let $A$ and $B$ be square matrices of the same size. If $AB$ is invertible, then $A$ and $B$ must also be invertible.
 
-#### proof:
+#### Proof
 
 Let $\mathbf x_0$ be the solution of $B\mathbf x=\mathbf 0$, then
 $$
@@ -667,7 +667,7 @@ $$
 
 (d) The inverse of an invertible lower triangular matrix is lower triangular, and the inverse of an invertible upper triangular matrix is upper triangular
 
-#### proof:
+#### Proof
 
 (a) `easy`
 
@@ -723,7 +723,7 @@ So production of $AA^T$ and $A^TA$ are *sysmetric*.
 
 If $A$ is an invertible matrix, then $AA^T$ and $A^TA$ are also invertible.
 
-#### proof:
+#### Proof
 
 Since $A$ is invertible, so is $A^{T}$. Then the production are invertible.
 
@@ -749,7 +749,7 @@ $$
 $$
 b=f(a)
 $$
-$b$ is the 像*image* of $a$ under $f$. 
+$b$ is the 像 *image* of $a$ under $f$. 
 
 $A$ is 定义域 *domain*, $B$ is 上域 *codomain*, $\{b|b=f(a)\}$ is 值域 *range* which is a subset of $B$.
 
