@@ -109,7 +109,7 @@ If $\mathbf u$, $\mathbf v$, and $\mathbf w$ are vectors in $\mathbb R^n$, and i
 
 Since
 $$
--1\le\theta=\arccos(\frac{\mathbf u\cdot\mathbf v}{\|\mathbf u\|\|\mathbf v\|})\le1
+-1\le\cos\theta=\frac{\mathbf u\cdot\mathbf v}{\|\mathbf u\|\|\mathbf v\|}\le1
 $$
 
 ### THEOREM 3.2.4 Cauchy–Schwarz Inequality
@@ -161,7 +161,7 @@ $$
 
 Two nonzero vectors $u$ and $v$ in $\mathbb R^n$ are said to be *orthogonal* (or perpendicular) if $\mathbf u \cdot \mathbf v = 0$. We will also agree that the zero vector in $\mathbb R^n$ is orthogonal to every vector in $\mathbb R^n$.
 
-### 法向量 Lines and Planes Determined by Points and Normals
+### 直线和平面的点法向式 Lines and Planes Determined by Points and Normals
 
 Consider a line in $\mathbb R^2$ that passes $(x_0, y_0)$. An arbitary point on the line $(x,y)$, 
 $$
@@ -196,6 +196,11 @@ k=\frac{\mathbf u\cdot\mathbf a}{\|\mathbf a\|^2}\\
 \mathbf w_2=\mathbf u-\frac{\mathbf u\cdot\mathbf a}{\|\mathbf a\|^2}\mathbf a
 $$
 We call the $\mathbf w_1$ the orthogonal projection of $\mathbf u$ on $\mathbf a$, we denote it as $\text{proj}_{\mathbf a}\mathbf u$, the $\mathbf w_2$ the vector component of $\mathbf u$ orthogonal to $\mathbf a$.
+$$
+\text{proj}_{\mathbf a}\mathbf u=\frac{\mathbf u\cdot\mathbf a}{\|\mathbf a\|^2}\mathbf a\\
+\mathbf u-\text{proj}_{\mathbf a}\mathbf u=\mathbf u-\frac{\mathbf u\cdot\mathbf a}{\|\mathbf a\|^2}\mathbf a
+$$
+
 
 ### THEOREM 3.3.3 Theorem of Pythagoras in $\mathbb R^n$
 
@@ -212,11 +217,131 @@ $$
 
 ## 3.4 线性方程组的几何意义 The Geometry of Linear Systems
 
+### 直线的参数方程 (点向式) Vector and Parametric Equations of Lines in $\mathbb R^2$ and $\mathbb R^3$
 
+Let L be the line in $\mathbb R^2$ or $\mathbb R^3$ that contains the point $\mathbf x_0$ and is parallel to the nonzero vector $\mathbf v$. Then the equation of the line through $\mathbf x_0$ that is parallel to $\mathbf v$ is $\mathbf x = \mathbf x0 + t\mathbf v$. If $\mathbf x_0 = \mathbf 0$, then the line passes through the origin and the equation has the form $\mathbf x = t\mathbf v$.
 
+Let W be the plane in $\mathbf R^3$ that contains the point $\mathbf x_0$ and is parallel to the noncollinear vectors $\mathbf v_1$ and $\mathbf v_2$. Then an equation of the plane through $\mathbf x_0$ that is parallel to $\mathbf v_1$ and $\mathbf v_2$ is given by $\mathbf x = \mathbf x_0 + t_1\mathbf v_1 + t_2\mathbf v_2$. If $\mathbf x_0 = \mathbf 0$, then the plane passes through the origin and the equation has the form $\mathbf x = t_1\mathbf v_1 + t_2\mathbf v_2$.
 
+### DEFINITION 1
 
+If $\mathbf x0$ and $\mathbf v$ are vectors in $\mathbb R^n$, and if $\mathbf v$ is nonzero, then the equation $\mathbf x = \mathbf x0 + t\mathbf v$ defines the line through x0 that is parallel to $\mathbf v$. In the special case where $\mathbf x_0 = \mathbf 0$, the line is said to pass through the origin.
 
+### DEFINITION 2
 
+If $\mathbf x_0$, $\mathbf v_1$, and $\mathbf v_2$ are vectors in $\mathbb R^n$, and if $\mathbf v_1$ and $\mathbf v_2$ are not collinear, then the equation $\mathbf x = \mathbf x_0 + t_1\mathbf v_1 + t_2\mathbf v_2$ defines the plane through x0 that is parallel to v1 and v2. In the special case where $\mathbf x_0 = \mathbf 0$, the plane is said to pass through the origin.
 
+### 两点式 Lines Through Two Points in $\mathbb R^n$
 
+$$
+\mathbf x = \mathbf x_0 + t(\mathbf x_1 − \mathbf x_0)\Longrightarrow\mathbf x = (1 − t)\mathbf x_0 + t\mathbf x_1
+$$
+
+### THEOREM 3.4.3
+
+If $A$ is an $m \times n$ matrix, then the solution set of the homogeneous linear system $A\mathbf x = \mathbf 0$ consists of all vectors in $\mathbb R^n$ that are orthogonal to every row vector of $A$.
+
+### THEOREM 3.4.4
+
+The general solution of a consistent linear system $A\mathbf x = \mathbf b$ can be obtained by adding any specific solution of $A\mathbf x = \mathbf b$ to the general solution of $A\mathbf x = \mathbf 0$.
+
+## 3.5 叉乘 Cross Product
+
+### DEFINITION 1
+
+If $\mathbf u = (u_1, u_2, u_3)$ and $\mathbf v = (v_1, v_2, v_3)$ are vectors in $\mathbb R^3$, then the cross product $\mathbf u \times \mathbf v$ is the vector defined by
+$$
+\mathbf u \times \mathbf v=(u_2v_3 − u_3v_2, u_3v_1 − u_1v_3, u_1v_2 − u_2v_1)
+$$
+or
+$$
+\mathbf u \times \mathbf v=(\begin{vmatrix}u_2&u_3\\v_2&v_3\end{vmatrix},-\begin{vmatrix}u_1&u_3\\v_1&v_3\end{vmatrix},\begin{vmatrix}u_1&u_2\\v_1&v_2\end{vmatrix})
+$$
+or
+$$
+\mathbf u \times \mathbf v=\begin{vmatrix}\hat i&\hat j&\hat k\\ u_1&u_2&u_3\\v_1&v_2&v_3\end{vmatrix}
+$$
+
+### THEOREM 3.5.1 Relationships Involving Cross Product and Dot Product
+
+If $\mathbf u$, $\mathbf v$, and w are vectors in $\mathbb R^3$, then
+
+1. $\mathbf u \cdot (\mathbf u \times \mathbf v) = \mathbf 0$ [$\mathbf u \times \mathbf v$ is orthogonal to $\mathbf u$]
+2. $\mathbf v \cdot (\mathbf u \times \mathbf v) = \mathbf 0$ [$\mathbf u \times \mathbf v$ is orthogonal to $\mathbf v$]
+3. $\|\mathbf u \times \mathbf v\|^2 = \|\mathbf u\|^2\|\mathbf v\|^2 − (\mathbf u \cdot \mathbf v)^2$ [ Lagrange’s identity ]
+4. $\mathbf u \times (\mathbf v \times \mathbf w) = (\mathbf u \cdot \mathbf w)\mathbf v − (\mathbf u \cdot \mathbf v)\mathbf w$ [ vector triple product ]
+5. $(\mathbf u \times \mathbf v) \times \mathbf w = (\mathbf u \cdot \mathbf w)\mathbf v − (\mathbf v \cdot \mathbf w)\mathbf u$ [ vector triple product ]
+
+#### Proof
+
+1. $$
+   \mathbf u \cdot (\mathbf u \times \mathbf v)=\begin{vmatrix}u_1&u_2&u_3\\ u_1&u_2&u_3\\v_1&v_2&v_3\end{vmatrix}=0
+   $$
+
+2. $$
+   \mathbf v \cdot (\mathbf u \times \mathbf v)=\begin{vmatrix}v_1&v_2&v_3\\ u_1&u_2&u_3\\v_1&v_2&v_3\end{vmatrix}=0
+   $$
+
+3. 
+   $$
+   \begin{align*}
+   \text{LHS}&=(u_2v_3 − u_3v_2)^2+(u_3v_1 − u_1v_3)^2+(u_1v_2 − u_2v_1)^2\\
+   \text{RHS}&=(u_1+u_2+u_3)^2(v_1+v_2+v_3)^2-(u_1v_1+u_2v_2+u_3v_3)^2\\
+   &=(u_1v_2+u_1v_3+u_2v_1+u_2v_3+u_3v_1+u_3v_2)\\&(2u_1v_1+u_1v_2+u_1v_3+u_2v_1+2u_2v_2+u_2v_3+u_3v_1+u_3v_2+2u_3v_3)
+   \end{align*}
+   $$
+
+### THEOREM 3.5.2 Properties of Cross Product
+
+If $\mathbf u$, $\mathbf v$, and $\mathbf w$ are any vectors in $\mathbb 3$ and $k$ is any scalar, then:
+
+1. $\mathbf u \times \mathbf v = −(\mathbf v \times \mathbf u)$
+2. $\mathbf u \times (\mathbf v + \mathbf w) = (\mathbf u \times \mathbf v) + (\mathbf u \times \mathbf w)$
+3. $(\mathbf u + \mathbf v) \times \mathbf w = (\mathbf u \times \mathbf w) + (\mathbf v \times \mathbf w)$
+4. $k(\mathbf u \times \mathbf v) = (k\mathbf u) \times \mathbf v = \mathbf u \times (k\mathbf v)$
+5. $\mathbf u \times \mathbf 0 = \mathbf 0 \times \mathbf u = \mathbf 0$
+6. $\mathbf u \times \mathbf u = \mathbf 0$
+
+#### Proof
+
+1. $$
+   \mathbf u \times \mathbf v =\begin{vmatrix}\hat i&\hat j&\hat k\\ u_1&u_2&u_3\\v_1&v_2&v_3\end{vmatrix}=-\begin{vmatrix}\hat i&\hat j&\hat k\\v_1&v_2&v_3\\ u_1&u_2&u_3\end{vmatrix}= −(\mathbf v \times \mathbf u)
+   $$
+
+2. $$
+   \mathbf u \times (\mathbf v + \mathbf w) =\begin{vmatrix}\hat i&\hat j&\hat k\\ u_1&u_2&u_3\\v_1+w_1&v_2+w_2&v_3+w_3\end{vmatrix}=\\\begin{vmatrix}\hat i&\hat j&\hat k\\ u_1&u_2&u_3\\v_1&v_2&v_3\end{vmatrix}+\begin{vmatrix}\hat i&\hat j&\hat k\\ u_1&u_2&u_3\\w_1&w_2&w_3\end{vmatrix}= (\mathbf u \times \mathbf v) + (\mathbf u \times \mathbf w)
+   $$
+
+3. $$
+   (\mathbf u + \mathbf v) \times \mathbf w =\begin{vmatrix}\hat i&\hat j&\hat k\\ u_1+v_1&u_2+v_2&u_3+v_3\\w_1&w_2&w_3\end{vmatrix}
+   =\\\begin{vmatrix}\hat i&\hat j&\hat k\\ u_1&u_2&u_3\\w_1&w_2&w_3\end{vmatrix}+\begin{vmatrix}\hat i&\hat j&\hat k\\ v_1&v_2&v_3\\w_1&w_2&w_3\end{vmatrix}=(\mathbf u \times \mathbf w) + (\mathbf v \times \mathbf w)
+   $$
+
+4. $$
+   k(\mathbf u \times \mathbf v) = k\begin{vmatrix}\hat i&\hat j&\hat k\\ u_1&u_2&u_3\\v_1&v_2&v_3\end{vmatrix}=\\
+   (k\mathbf u) \times \mathbf v = \begin{vmatrix}\hat i&\hat j&\hat k\\ ku_1&ku_2&ku_3\\v_1&v_2&v_3\end{vmatrix}=\\
+   \mathbf u \times (k\mathbf v)=\begin{vmatrix}\hat i&\hat j&\hat k\\ u_1&u_2&u_3\\kv_1&kv_2&kv_3\end{vmatrix}
+   $$
+
+5. $$
+   \mathbf u \times \mathbf 0 =\begin{vmatrix}\hat i&\hat j&\hat k\\ u_1&u_2&u_3\\0&0&0\end{vmatrix}= \mathbf 0 \times \mathbf u = \begin{vmatrix}\hat i&\hat j&\hat k\\ 0&0&0\\v_1&v_2&v_3\end{vmatrix}=\mathbf 0
+   $$
+
+6. $$
+   \mathbf u \times \mathbf u =\begin{vmatrix}\hat i&\hat j&\hat k\\ u_1&u_2&u_3\\u_1&u_2&u_3\end{vmatrix}= \mathbf 0
+   $$
+
+### 叉乘的几何解释 Geometric Interpretation of Cross Product
+
+$$
+\begin{align*}
+\|\mathbf u \times \mathbf v\|^2&=\|\mathbf u\|^2\|\mathbf v\|^2 − (\mathbf u \cdot \mathbf v)^2\\
+&=\|\mathbf u\|^2\|\mathbf v\|^2 − \|\mathbf u\|^2\|\mathbf v\|^2\cos^2\theta\\
+&=\|\mathbf u\|^2\|\mathbf v\|^2\sin^2\theta
+\end{align*}\\
+\|\mathbf u \times \mathbf v\|=\|\mathbf u\|\|\mathbf v\|\sin\theta
+$$
+
+### THEOREM 3.5.3 Area of a Parallelogram
+
+If $\mathbf u$ and $\mathbf v$ are vectors in $\mathbb 3$, then $\mathbf u \times \mathbf v$ is equal to the area of the parallelogram determined by $\mathbf u$ and $\mathbf v$.
