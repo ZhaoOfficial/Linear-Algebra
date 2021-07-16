@@ -53,7 +53,7 @@ If $A$ is an $m\times n$ matrix, then
 1. If $\mathbf x_0$ is any solution of $A\mathbf x=\mathbf 0$, then $A^TA\mathbf x_0=A^T(A\mathbf x_0)=A^T\mathbf 0=\mathbf 0$, also the soltion of $A^TA\mathbf x=\mathbf 0$.
    If $\mathbf x_0$ is any solution of $A^TA\mathbf x=\mathbf 0$, then $\mathbf x_0$ is orthogonal to all vector in the row space of $A^TA$. Since $A^TA$ is symmetric, then $\mathbf x_0$ is orthogonal to all vector in the colunm space of $A^TA$, implice that $\mathbf x_0^TA^TA\mathbf=\mathbf 0^TA=\mathbf0^T$.
    $$
-   \mathbf0^T\mathbf x_0=(\mathbf x_0^TA^TA)\mathbf x_0=\mathbf     x_0^T(A^TA\mathbf x_0)=(A\mathbf x_0)^T(A\mathbf x_0)=\|A\mathbf x_0\|^2=0
+   \mathbf0^T\mathbf x_0=(\mathbf x_0^TA^TA)\mathbf x_0=\mathbf x_0^T(A^TA\mathbf x_0)=(A\mathbf x_0)^T(A\mathbf x_0)=\|A\mathbf x_0\|^2=0
    $$
    Then $A\mathbf x_0=\mathbf 0$.
 
@@ -168,6 +168,13 @@ U\Sigma&=\begin{bmatrix}\sigma_1\mathbf u_1&\cdots&\sigma_k\mathbf u_k&0&\cdots&
 U\Sigma V^T=A
 $$
 
+> 奇异值分解的步骤：
+>
+> 1. 计算 $A^TA$ 的特征值和特征向量。
+> 2. 降序排列 $A^TA$ 的特征值，对得到的特征值开根号得到 $\Sigma$。
+> 3. 单位化对应特征值的 $A^TA$ 的特征向量，并且组成矩阵得到 $V$。
+> 4. 用 $A\mathbf v_i/\sigma_i=\mathbf u_i$ 得到 $\{\mathbf u_1,\dots,\mathbf u_k\}$，其中 $k$ 为 $A$ 的秩。
+> 5. 扩充 $\{\mathbf u_1,\dots,\mathbf u_k\}$ 使得其成为 $\mathbb R^n$ 的一组基，并且组成矩阵得到 $U$。
 
 > Example:
 > $$
