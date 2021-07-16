@@ -57,9 +57,18 @@ If $W_1, W_2,\dots,W_r$ are subspaces of a vector space $V$, then the intersect
 
 If $\mathbf w$ is a vector in a vector space $V$, then $\mathbf w$ is said to be a 线性组合 *linear combination* of the vectors $\mathbf v_1, \mathbf v_2,\dots, \mathbf v_r$ in $V$ if $\mathbf w$ can be expressed in the form $\mathbf w = k_1\mathbf v_1 + k_2\mathbf v_2 +\dots+ k_r\mathbf v_r$ where $k_1, k_2,\dots,k_r$ are scalars. These scalars are called the 系数 *coefficients* of the linear combination.
 
+### THEOREM 4.2.3
 
+If $S = {\mathbf w_1, \mathbf w_2,\dots, \mathbf w_r}$ is a nonempty set of vectors in a vector space $V$, then:
 
+1. The set $W$ of all possible linear combinations of the vectors in $S$ is a subspace of $V$.
+2. The set $W$ in part(a)is the “smallest” subspace of $V$ that contains all of the vectors in $S$ in the sense that any other subspace that contains those vectors contains $W$.
 
+#### Proof
+
+##### 1
+
+$W$ is closed under addition and
 
 
 

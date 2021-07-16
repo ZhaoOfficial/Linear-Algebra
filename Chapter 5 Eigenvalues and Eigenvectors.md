@@ -80,12 +80,7 @@ then $A$ is invertible.
 
 ### DEFINITION 2
 
-If $T : V\to V$ is a linear operator on a vector space $V$ , then a nonzero vector $\mathbf x$ in $V$ is called an eigenvector of $T$ if $T(\mathbf x)$ is a scalar multiple of $\mathbf x$; that is,
-$$
-T(\mathbf x) = \lambda \mathbf x
-$$
-for some scalar $\lambda$ . The scalar $\lambda$  is called an eigenvalue of $T$ , and $\mathbf x$ is said to be an eigenvector corresponding to $\lambda$.
-
+If $T : V\to V$ is a linear operator on a vector space $V$ , then a nonzero vector $\mathbf x$ in $V$ is called an eigenvector of $T$ if $T(\mathbf x)$ is a scalar multiple of $\mathbf x$; that is, for some scalar $\lambda$ . The scalar $\lambda$  is called an eigenvalue of $T$ , and $\mathbf x$ is said to be an eigenvector corresponding to $\lambda$.
 ## 5.2 对角化 Diagonalization
 
 ### DEFINITION 1
@@ -134,7 +129,28 @@ Since $\{\mathbf p_1,\dots,\mathbf p_n\}$ are linearly independent, then $P$ is 
 
 ##### 1
 
+Suppose $\{\mathbf v_1,\mathbf  v_2,\dots, \mathbf v_k\}$ is a linearly dependent set.
 
+Since $\mathbf v_i\ne\mathbf 0$, then $\{\mathbf v_1\}$ is a linearly independent set. Let $r(1\le r< k)$ be the largest integer such that $\{\mathbf v_1,\mathbf  v_2,\dots, \mathbf v_r\}$ is a linearly dependent set. Then $\{\mathbf v_1,\mathbf  v_2,\dots, \mathbf v_{r+1}\}$ is a linearly dependent set.
+$$
+c_1\mathbf v_1+c_2\mathbf  v_2+\dots+c_{r+1} \mathbf v_{r+1}=\mathbf0\tag{1}\\
+$$
+Multiplying both sides of (1) by $A$
+$$
+A(c_1\mathbf v_1+c_2\mathbf  v_2+\dots+c_{r+1} \mathbf v_{r+1})=\mathbf0\\
+
+c_1\lambda_1\mathbf v_1+c_2\lambda_2\mathbf  v_2+\dots+c_{r+1}\lambda_{r+1}\mathbf v_{r+1}=\mathbf0\tag{2}\\
+$$
+$(2)-\lambda_{r+1}(1)$
+$$
+c_1(\lambda_1-\lambda_{r+1})\mathbf v_1+c_2(\lambda_2-\lambda_{r+1})\mathbf  v_2+\dots+c_{r+1}(\lambda_{r+1}-\lambda_{r+1})\mathbf v_{r+1}=\mathbf0\\
+c_1(\lambda_1-\lambda_{r+1})\mathbf v_1+c_2(\lambda_2-\lambda_{r+1})\mathbf  v_2+\dots+c_{r}(\lambda_{r}-\lambda_{r+1})\mathbf v_{r}=\mathbf0\\
+$$
+Since $\{\mathbf v_1,\mathbf  v_2,\dots, \mathbf v_r\}$ is a linearly dependent set, then 
+$$
+c_1=c_2=\dots=c_r=0
+$$
+But $c_{r+1}\ne0$, then $\mathbf v_{r+1}=\mathbf0$, which is not an proper eigenvector, then $\{\mathbf v_1,\mathbf  v_2,\dots, \mathbf v_k\}$ is a linearly independent set.
 
 ##### 2
 
@@ -178,7 +194,6 @@ Since matrix has $n$ distinct eigenvalues, then it has $n$ linearly independent 
 > P=\begin{bmatrix}1&0&-2\\0&1&1\\-1&0&1\end{bmatrix}\quad
 > D=\begin{bmatrix}2&0&0\\0&2&0\\0&0&1\end{bmatrix}
 > $$
-> 
 
 ### THEOREM 5.2.3 矩阵幂的特征值 Eigenvalues of Powers of a Matrix
 
@@ -209,7 +224,73 @@ Easy for computing.
 
 Notice that the example shows that the converse of THEOREM 5.2.2(2) does not hold.
 
+If $\lambda_0$ is an eigenvalue of an $n\times n$ matrix $A$.
 
+The geometric multiplicity of $\lambda_0$: the dimension of the eigenspace corresponding to $\lambda_0$.
+
+The algebraic multiplicity of $\lambda_0$: the number of times that $\lambda − \lambda_0$ appears as a factor in the characteristic polynomial of $A$.
+
+### THEOREM 5.2.4
+
+`without proof`
+
+If $A$ is a square matrix, then:
+
+1. For every eigenvalue of $A$, the geometric multiplicity is less than or equal to the algebraic multiplicity.
+2. A is diagonalizable if and only if the geometric multiplicity of every eigenvalue is equal to the algebraic multiplicity.
+
+## 5.3 复线性空间 Complex Vector Spaces
+
+### DEFINITION 1
+
+If $n$ is a positive integer, then a complex $n$-tuple is a sequence of $n$ complex numbers ($v_1,v_2,\dots, v_n$). The set of all complex $n$-tuples is called complex $n$-space and is denoted by $\mathbb C ^n$. Scalars are complex numbers, and the operations of addition, subtraction, and scalar multiplication are performed component-wise.
+
+Any vector in $\mathbb C^n$ can be split into 实部 *real* and 虚部 *imaginary* parts
+
+$$
+\begin{align*}
+\mathbf v&=(v_1,v_2,\dots, v_n)=(a_1+ib_1,a_2+ib_2,\dots,a_n+ib_n)\\
+&=(a_1,a_2,\dots,a_n)+i(b_1,b_2,\dots,b_n)\\
+&=\Re e(\mathbf v)+i\Im m(\mathbf v)
+\end{align*}
+$$
+then we define the *complex conjugate* of vector $\mathbf v$
+$$
+\bar{\mathbf v}=\Re e(\mathbf v)-i\Im m(\mathbf v)
+$$
+Real matrix: entries are real
+
+Complex matrix: entries are real or complex
+
+Similarly, we can define the *complex conjugate* of matrix $A$ as $\bar{A}$.
+
+### THEOREM 5.3.1
+
+If $\mathbf u$ and $\mathbf v$ are vectors in $\mathbb C^n$, and if $k$ is a scalar, then:
+
+1. $\bar{\bar{\mathbf u}} = \mathbf u$
+2. $\overline{k\mathbf u} = \bar{k}\bar{\mathbf u}$
+3. $\overline{\mathbf u \pm \mathbf v} = \bar{\mathbf u} \pm \bar{\mathbf v}$
+
+### THEOREM 5.3.2
+
+If A is an $m \times k$ complex matrix and $B$ is a $k \times n$ complex matrix, then:
+
+1. $\bar{\bar{A}} = A$
+2. $(\overline{A^T}) = (\bar{A})^T$
+3. $\overline{AB} =\overline{A}\overline{B}$
+
+### DEFINITION 2
+
+If $u = (u_1,u_2,\dots, u_n)$ and $v = (v_1,v_2,\dots, v_n)$ are vectors in $\mathbb C^n$, then the *complex Euclidean inner product* of $\mathbf u$ and $\mathbf v$ (also called the complex dot product) is denoted by $\mathbf u \cdot \mathbf v$ and is defined as
+$$
+\mathbf u \cdot \mathbf v = u_1\overline{v_1} + u_2\overline{v_2} +\cdots+ u_n\overline{v_n}
+$$
+We also define *the Euclidean norm on $\mathbb C^n$* to be
+$$
+\|\mathbf v\| = \sqrt{\mathbf v \cdot \mathbf v} = \sqrt{|v_1|^2 + |v_2|^2 +\dots+|v_n|^2}
+$$
+Unit vector and orthogonal are the same as real.
 
 
 

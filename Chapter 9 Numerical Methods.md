@@ -104,7 +104,7 @@ A&=U\Sigma V^T\\
 \begin{array}{ccc|c} 
     \sigma_1 &  \cdots  &     0    &          \\
     \vdots   &  \ddots  &  \vdots  & \mathbf0 \\
-        0    &     0    & \sigma_k &          \\
+        0    &  \cdots  & \sigma_k &          \\
     \hline              
              & \mathbf0 &          & \mathbf0 \\
       
@@ -196,15 +196,15 @@ $$
 > $$
 > \begin{bmatrix}1&-1\\-1&1\end{bmatrix}
 > $$
-> is 
+> is
 > $$
 > \mathbf v_1=\begin{bmatrix}\frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}\end{bmatrix}
 > $$
-> The orthonormal basis for 
+> The orthonormal basis for
 > $$
 > \begin{bmatrix}-1&-1\\-1&-1\end{bmatrix}
 > $$
-> is 
+> is
 > $$
 > \mathbf v_2=\begin{bmatrix}\frac{\sqrt{2}}{2}\\-\frac{\sqrt{2}}{2}\end{bmatrix}
 > $$
@@ -233,5 +233,33 @@ $$
 
 ## 9.5 用奇异值分解实现数据压缩 Data Compression Using Singular Value Decomposition
 
+### 简化奇异值分解 Reduced Singular Value Decomposition
 
+The products that involve zero blocks as factors drop out, leaving
+$$
+\begin{align*}
+A&=U_1\Sigma_1 V_1^T\\
+&=\begin{bmatrix}\mathbf u_1&\cdots&\mathbf u_k\end{bmatrix}
+\left[
+\begin{array}{ccc|c} 
+    \sigma_1 &  \cdots  &     0   \\
+    \vdots   &  \ddots  &  \vdots  \\
+        0    &  \cdots  & \sigma_k \\      
+\end{array}
+\right]
+\begin{bmatrix}
+\mathbf v_1^T\\
+\vdots\\
+\mathbf v_k^T\\
+\end{bmatrix}\\
+&=\sigma_1\mathbf u_1\mathbf v_1^T+\sigma_2\mathbf u_2\mathbf v_2^T+\dots+\sigma_k\mathbf u_k\mathbf v_k^T
+\end{align*}
+$$
 
+### 数据压缩和图像处理 Data Compression and Image Processing
+
+If an image has size $m\times n$, then it needs to store $mn$ entries.
+
+If we apply Reduced Singular Value Decomposition, it need to store $km+k+kn$ entries.
+
+Notice that there are some $\sigma_i$ which are small enough to be ignored, the we can drop the corresponding entries to make the matrix rank $r$. This is called *rank $r$ approximation of $A$*.

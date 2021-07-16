@@ -104,8 +104,10 @@ $$
 \text{row echelon form}\qquad\qquad\qquad\qquad\qquad\text{reduced row echelon form}
 $$
 
-### 高斯消元法步骤 Elimination Methods
 
+
+> 高斯消元法步骤：
+>
 > Step 1. Locate the leftmost *column* that does not consist entirely of 0.
 > $$
 > \begin{bmatrix}
