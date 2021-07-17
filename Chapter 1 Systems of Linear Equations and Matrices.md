@@ -2,7 +2,7 @@
 
 ## 1.1 线性方程组介绍 Introduction to Systems of Linear Equations
 
-##### 线性方程 linear equation
+### 线性方程 linear equation
 
 $$
 a_1x_1 + a_2x_2 +\dots+ a_nx_n = b
@@ -10,13 +10,13 @@ $$
 
 where $a_1, a_2,\dots,a_n$ and $b$ are constants, and the $a_i$ are not all zero.
 
-##### 齐次线性方程 homogeneous linear equation
+### 齐次线性方程 homogeneous linear equation
 
 $$
 a_1x_1 + a_2x_2 +\dots+ a_nx_n = 0
 $$
 
-##### 线性方程组 system of linear equations
+### 线性方程组 system of linear equations
 
 A finite set of linear equations. $x_i$ are unknowns.
 
