@@ -124,6 +124,22 @@ k_1\mathbf v_1 + k_2\mathbf v_2 +\dots+ k_r\mathbf v_r = \mathbf 0
 $$
 are $k_1 = 0, k_2 = 0,\dots,k_r = 0$.
 
+#### Proof
+
+Suppose $S$ is not a linearly independent set, then there is a vector $\mathbf v_i$, 
+$$
+\mathbf v_i=a_1\mathbf v_1+\dots+a_{i-1}\mathbf v_{i-1}+a_{i+1}\mathbf v_{i+1}+\dots+a_r\mathbf v_r
+$$
+with $a_j$ are not all $0$. Then $k_j$ are not all $0$.
+
+Suppose $k_j$ are not all $0$, then suppose it is $k_1$, then
+$$
+\mathbf v_1=(-\frac{k_2}{k_1})\mathbf v_2+\dots+(-\frac{k_r}{k_1})\mathbf v_r
+$$
+
+which expresses $\mathbf v_1$ as a linear combination of the other vectors in $S$.
+
+
 ### THEOREM 4.3.2
 
 1. A finite set that contains $\mathbf 0$ is linearly dependent.
@@ -150,4 +166,87 @@ $$
 a\mathbf v_1+b\mathbf v_2=\mathbf 0\\
 \mathbf v_1=\frac{b}{a}\mathbf v_2
 $$
+
+### THEOREM 4.3.3
+
+Let $S = \{\mathbf v_1, \mathbf v_2,\dots, \mathbf v_r\}$ be a set of vectors in $\mathbb R^n$. If $r > n$, then $S$ is linearly dependent.
+
+#### Proof
+
+Consider
+$$
+k_1\mathbf v_1+\dots+k_r\mathbf v_r=\mathbf 0
+$$
+Expand it to a linear system. Since $r > n$, then $S$ is linearly dependent.
+
+### DEFINITION 2 Wronskian Determinant
+
+If $f_1,\dots,f_n$ are $n-1$ times differentiable on $\mathbb R$, then the Wronskian determinant is
+$$
+W(x)=\begin{vmatrix}
+f_1(x)&f_2(x)&\dots&f_n(x)\\
+f'_1(x)&f'_2(x)&\dots&f'_n(x)\\
+\vdots&\vdots&&\vdots\\
+f^{(n-1)}_1(x)&f^{(n-1)}_2(x)&\dots&f^{(n-1)}_n(x)
+\end{vmatrix}
+$$
+
+### THEOREM 4.3.4
+
+If the functions $f_1,\dots,f_n$ are $n-1$ times differentiable on $\mathbb R$, and the Wronskian determinant is not identically $0$ on $\mathbb R$, then these functions form a linearly independent set of vectors in $C^{(n-1)}(-\infty,\infty)$.
+
+## 4.4 坐标和基 Coordinates and Basis
+
+### DEFINITION 1
+
+If $S = \{\mathbf v_1, \mathbf v_2,\dots, \mathbf v_r\}$ is a set of vectors in a finite-dimensional vector space $V$, then $S$ is called a *basis* for $V$ if <u>$S$ spans $V$ and $S$ is linearly independent</u>.
+
+### THEOREM 4.4.1 基唯一表示 Uniqueness of Basis Representation
+
+If $S = \{\mathbf v_1, \mathbf v_2,\dots, \mathbf v_r\}$ is a basis for a vector space $V$, then every vector $\mathbf v$ can be expressed in the form $\mathbf v=c_1\mathbf v_1+\dots+c_n\mathbf v_n$ in exactly one way.
+
+#### Proof
+
+Suppose there is a vector $\mathbf v$ can be expressed in two way
+$$
+\mathbf v=a_1\mathbf v_1+\dots+a_n\mathbf v_n\\
+\mathbf v=b_1\mathbf v_1+\dots+b_n\mathbf v_n\\
+$$
+Then
+$$
+\mathbf 0=(a_1-b_1)\mathbf v_1+\dots+(a_n-b_n)\mathbf v_n\\
+$$
+Since $S$ is a basis for $V$, then 
+$$
+a_i=b_i
+$$
+Thus, the two expressions for $\mathbf v$ are the same.
+
+### DEFINITION 2
+
+If $S = \{\mathbf v_1, \mathbf v_2,\dots, \mathbf v_r\}$ is a basis for a vector space $V$, and $\mathbf v=c_1\mathbf v_1+\dots+c_n\mathbf v_n$ is the expression for a vector $\mathbf v$ in terms of the basis $S$, then $c_1,\dots,c_n$ are called the *coordinates* of $\mathbf v$ relative to the basis $S$.
+$$
+[\mathbf v]_S=\begin{bmatrix}c_1&c_2&\dots&c_n\end{bmatrix}^T
+$$
+
+## 4.5 维 Dimension
+
+### THEOREM 4.5.1
+
+All bases for a finite-dimensional vector space have the same number of vectors.
+
+### THEOREM 4.5.2
+
+Let V be an n-dimensional vector space, and let $\{\mathbf v_1, \mathbf v_2,\dots, \mathbf v_n\}$ be any basis.
+
+1. If a set in $V$ has more than $n$​ vectors, then it is linearly dependent.
+2. If a set in $V$ has fewer than $n$ vectors, then it does not span $V$.
+
+
+
+
+
+
+
+
 

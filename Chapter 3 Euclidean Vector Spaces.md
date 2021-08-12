@@ -286,10 +286,40 @@ If $\mathbf u$, $\mathbf v$, and w are vectors in $\mathbb R^3$, then
    $$
    \begin{align*}
    \text{LHS}&=(u_2v_3 − u_3v_2)^2+(u_3v_1 − u_1v_3)^2+(u_1v_2 − u_2v_1)^2\\
+   &=u^2_1v^2_2+u^2_2v^2_1+u^2_1v^2_3+u^2_3v^2_1+u^2_2v^2_3+u^2_3v^2_2\\
+   &\quad-2u_1u_2v_1v_2-2u_1u_3v_1v_3-2u_2u_3v_2v_3\\
+   &=u^2_1v^2_2+u^2_2v^2_1+u^2_1v^2_3+u^2_3v^2_1+u^2_2v^2_3+u^2_3v^2_2+u^2_1v^2_1+u^2_2v^2_2+u^2_3v^2_2\\
+   &\quad-u^2_1v^2_1-u^2_2v^2_2-u^2_3v^2_3-2u_1u_2v_1v_2-2u_1u_3v_1v_3-2u_2u_3v_2v_3\\
    \text{RHS}&=(u_1+u_2+u_3)^2(v_1+v_2+v_3)^2-(u_1v_1+u_2v_2+u_3v_3)^2\\
-   &=(u_1v_2+u_1v_3+u_2v_1+u_2v_3+u_3v_1+u_3v_2)\\&(2u_1v_1+u_1v_2+u_1v_3+u_2v_1+2u_2v_2+u_2v_3+u_3v_1+u_3v_2+2u_3v_3)
    \end{align*}
    $$
+   
+4. $$
+   \begin{align*}
+   &\quad\mathbf u \times (\mathbf v \times \mathbf w)\\
+   &=\begin{vmatrix}i&j&k\\
+   u_1&u_2&u_3\\
+   v_2w_3 − v_3w_2&v_3w_1 − v_1w_3&v_1w_2 − v_2w_1
+   \end{vmatrix}\\
+   &=\begin{vmatrix}i&j&k\\
+   u_1&u_2&u_3\\
+   v_2w_3&v_3w_1&v_1w_2
+   \end{vmatrix}-\begin{vmatrix}i&j&k\\
+   u_1&u_2&u_3\\
+   v_3w_2&v_1w_3&v_2w_1
+   \end{vmatrix}\\
+   &=(u_2v_1w_2-u_3v_3w_1,u_3v_2w_3-u_1v_1w_2,u_1v_3w_1-u_2v_2w_3)\\
+   &\quad-(u_2v_2w_1-u_3v_1w_3,u_3v_3w_2-u_1v_2w_1,u_1v_1w_3-u_2v_3w_2)\\
+   &=(u_2v_1w_2+u_3v_1w_3,u_3v_2w_3+u_1v_2w_1,u_1v_3w_1+u_2v_3w_2)\\
+   &\quad-(u_2v_2w_1+u_3v_3w_1,u_3v_3w_2+u_1v_1w_2,u_1v_1w_3+u_2v_2w_3)\\
+   &=(u_2w_2+u_3w_3,u_3w_3+u_1w_1,u_1w_1+u_2w_2)\cdot(v_1,v_2,v_3)\\
+   &\quad-(u_2v_2+u_3v_3,u_3v_3+u_1v_1,u_1v_1+u_2v_2)\cdot(w_1,w_2,w_3)\\
+   &=\text{adding terms and subtract terms}\\
+   &=(\mathbf u \cdot \mathbf w)\mathbf v − (\mathbf u \cdot \mathbf v)\mathbf w
+   \end{align*}
+   $$
+
+5. Similar as 4.
 
 ### THEOREM 3.5.2 Properties of Cross Product
 
@@ -344,4 +374,4 @@ $$
 
 ### THEOREM 3.5.3 Area of a Parallelogram
 
-If $\mathbf u$ and $\mathbf v$ are vectors in $\mathbb 3$, then $\mathbf u \times \mathbf v$ is equal to the area of the parallelogram determined by $\mathbf u$ and $\mathbf v$.
+If $\mathbf u$​ and $\mathbf v$​ are vectors in $\mathbb R^3$​, then $\mathbf u \times \mathbf v$​ is equal to the area of the parallelogram determined by $\mathbf u$​ and $\mathbf v$​.
